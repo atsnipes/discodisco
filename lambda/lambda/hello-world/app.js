@@ -27,7 +27,7 @@ exports.lambdaHandler = async (event, context) => {
     response = {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': 'https://hiboner.us',
+        'Access-Control-Allow-Origin': 'https://ramenchecks.com',
         'Access-Control-Allow-Credentials': true
       },
       body: JSON.stringify({
