@@ -1,3 +1,4 @@
+/* eslint-disable handle-callback-err */
 var Discogs = require('disconnect').Client
 
 const userToken = 'ABnBUcgJHbfGVzsmwfpFLeMDzoBRHXWWbQsLnIWt'
@@ -13,11 +14,14 @@ class DiscogsClient {
     var collection = this.discogsClient.user().collection()
     console.log('col = ')
     console.log(JSON.stringify(collection))
-    console.log(`ollection.getReleases('atsnipes', 0, { page: ${page}, per_page: ${pageSize} })`)
-    collection.getReleases('atsnipes', 0, { page: page, per_page: pageSize })
-      .then(function (releases) {
-        return releases
-      })
+    console.log(`collection.getReleases('atsnipes', 0, { page: ${page}, per_page: ${pageSize} })`)
+    // collection.getReleases('atsnipes', 1, { page: page, per_page: pageSize })
+    //   .then(function (releases) {
+    //     return releases
+    //   })
+    collection.getReleases('atsnipes', 1, { page: page, per_page: pageSize }, function (err, data) {
+      console.log(data)
+    })
   }
 
   getStuff () {

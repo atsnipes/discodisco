@@ -19,7 +19,8 @@ const actions = {
   async updateRecord ({ commit }) {
     commit('updateRecord', { loading: true })
     try {
-      const stuff = await dc.getStuff()
+      // const stuff = await dc.getStuff()
+      const stuff = await dc.getCollection(0, 70)
       console.log(`here's my client = ${JSON.stringify(stuff)}`)
       commit('updateRecord', { loading: false, data: stuff })
     } catch (error) {
